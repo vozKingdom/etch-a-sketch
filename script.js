@@ -1,6 +1,6 @@
-const gridContainer = document.querySelector('.gridContainer') 
+const gridContainer = document.querySelector('.grid-container') 
 
-
+function createGrid(){
 for (let i = 0; i < 16; i++) {
 
     const flexContainer = document.createElement('div') 
@@ -16,14 +16,23 @@ for (let i = 0; i < 16; i++) {
     flexContainer.appendChild(flexItem)
 
     flexItem.classList.add('flex-item')
+
     
-    flexItem.textContent = `${+i+1}`
+    flexItem.addEventListener('mouseover',()=>{
+        flexItem.classList.add('dynamic-background')
+    })
+    flexItem.addEventListener('mouseout',()=>{
+        flexItem.classList.remove('dynamic-background')
+    })
 }
 
+
+
+}
 }
 
 
-
+createGrid()
 
 
 

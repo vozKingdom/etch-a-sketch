@@ -1,9 +1,17 @@
+.grid-container {
+    border: black 1px solid;
+}
+
 .flex-container {
     display: flex;
 }
 
 .flex-item {
-    background-color: blue;
-    border: red solid 1px;
     flex: 1 1 0;
+    height: 50px;
+}
+
+
+.dynamic-background {
+    background-color: yellow;
 }
