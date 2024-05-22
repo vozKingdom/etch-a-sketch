@@ -19,17 +19,44 @@ for (let i = 0; i < gridSize; i++) {     //create 1 flex container
 
     flexItem.classList.add('flex-item')
 
-    
+
+        // -----------  bonus feature // random color generator + darkener  ------------\\
+
         flexItem.addEventListener('mouseover',()=>{
-            flexItem.classList.add('dynamic-background')
+
+            if(flexItem.style.backgroundColor == ''){
+                randomBg(flexItem)    
+                flexItem.style.opacity = '1'
+
+            } else if (+(flexItem.style.opacity) > 0) {     
+                let current = flexItem.style.opacity
+    
+                flexItem.style.opacity = `${current - 0.1}`
+
+                console.log(current)
+
+            } else if (+(flexItem.style.opacity) == 0) {     
+                return;
+            }        
         })
-        flexItem.addEventListener('mouseout',()=>{
-            flexItem.classList.remove('dynamic-background')
-        })
+
+        // -----------  generic bg // random color generator + darkener  ------------\\
+            // flexItem.addEventListener('mouseover',()=>{
+            //     flexItem.classList.add('dynamic-background')
+            //     }
+            // )
+            // flexItem.addEventListener('mouseout',()=>{
+            //     flexItem.classList.remove('dynamic-background')
+            //     }
+            // )
     }
 }
-
 }
+
+
+
+
+
 
 
 let defaultGridSize = 16   //set default grid size
@@ -75,3 +102,26 @@ btnNewGrid.addEventListener('click', ()=>{   //handle 'click' event of btn
 
 
 
+
+
+
+function randomBg(node){
+    let randomHex = '#'
+
+    for ( let i=0; i<6; i++ ) {
+        let randomNumber = ''
+
+        const hexDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
+
+        randomNumber =  Math.floor( Math.random() * 16 )  
+
+        randomHex += hexDigits[+randomNumber]
+    }
+
+    return node.style.backgroundColor = `${randomHex}`
+}
+
+
+// 'Math.random()' returns random number between ( 0.0 - 1.0 ). 
+// '*16' returns a number between the range ( 0.0 - 16.0 ). To get a random output within a specific range, just times the 'high number of the range' to Math.random(). as shown, '16.0 x Math.random()'  can only return a value between 0.0 - 16.0 
+// 'Math.floor()' rounds the value inside its parenthesis down to the nearest integer. eg: Math.floor(15.9)= 15

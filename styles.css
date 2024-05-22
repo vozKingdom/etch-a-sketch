@@ -1,12 +1,14 @@
 
 
 .grid-container {
+    background-color: black;
     border: black 1px solid;
     display: flex;       /* convert grid container into flex container, so that its direct children become flex items, which will be the divs that represent the 'flex containers', they'll be changed from having 'block' display to 'flex' */
     height: 555px;   /* set height of this element (flex container) */
 }
 
 .flex-container {
+    background-color: black;
     display: flex;
     flex-direction: column;
     flex: 1 1 0; 
@@ -17,20 +19,20 @@
     flex: 1 1 0;
 
     /* border: red solid 1px;  */
-    background-color: black;
+    background-color: white;
 }
-
-
 
 
 
 .dynamic-background {
     background-color: yellow;
+    opacity: 1.0;
 }
 
 
 body {
-    background-color: forestgreen;
+    background-color: white;
+    /* background-color: forestgreen; */
 }
 
 .button-container {
