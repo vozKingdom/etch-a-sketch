@@ -2,9 +2,12 @@
 
 .grid-container {
     background-color: black;
-    border: black 1px solid;
+    border: black 3px solid;
     display: flex;       /* convert grid container into flex container, so that its direct children become flex items, which will be the divs that represent the 'flex containers', they'll be changed from having 'block' display to 'flex' */
+    width: 555px;
     height: 555px;   /* set height of this element (flex container) */
+    margin-bottom: 33px;
+
 }
 
 .flex-container {
@@ -12,13 +15,13 @@
     display: flex;
     flex-direction: column;
     flex: 1 1 0; 
-    /* border: black solid 1px; */
+    /* border: black solid 1px; */ 
 }
 
 .flex-item {
     flex: 1 1 0;
 
-    /* border: red solid 1px;  */
+    /* border: red solid 1px;   */
     background-color: white;
 }
 
@@ -32,12 +35,13 @@
 
 body {
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     /* background-color: forestgreen; */
 }
 
 .button-container {
-    display: flex;
-    justify-content: center;
     padding: 0px 0px 21.44px 0px;
 }
 
@@ -48,4 +52,13 @@ button {
 
 h1 {
     text-align: center;
+}
+
+h3 {
+   text-align: center;
+   margin: 33 0 10 0;
+}
+
+p {
+    text-align: left;
 }

@@ -114,7 +114,16 @@ btnNewGrid.addEventListener('click', ()=>{   //register 'click' event handler on
 
         } else {
             console.log(userGridSize)  //console.log used to debug
+            alert(`Bro did you not read the manual? 😂:
+            1. Enter a Number between 0-100 🧙‍♀️
+            2. Paint like Michelangelo 🎨
+            3. Lose Your Mind in the Process 🐦 🔥
+            
+            EASY AS
 
+            To Keep BLAZING Forward 
+                👉 'click OK' 
+            `)
             continue;   //if user has not satisfied the conditions of the if statement, repeat the for loop
         }
     }
