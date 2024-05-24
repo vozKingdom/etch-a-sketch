@@ -4,8 +4,8 @@
     background-color: black;
     border: black 3px solid;
     display: flex;       /* convert grid container into flex container, so that its direct children become flex items, which will be the divs that represent the 'flex containers', they'll be changed from having 'block' display to 'flex' */
-    width: 555px;
-    height: 555px;   /* set height of this element (flex container) */
+    width: 440px;
+    height: 440px;   /* set height of this element (flex container) */
     margin-bottom: 33px;
 
 }

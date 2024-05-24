@@ -1,20 +1,24 @@
-const gridContainer = document.querySelector('.grid-container') 
+const GRID_CONTAINER = document.querySelector('.grid-container') 
+
+// ----- create initial grid  -----\\
+const DEFAULT_GRID_SIZE = 16   //set default grid size
+createGrid(DEFAULT_GRID_SIZE)   //execute function to create grid on page load
 
 
 
-function createGrid(gridSize){   //function that creates grid
-
-    for (let i = 0; i < gridSize; i++) {     //create 1 flex container, then insert it into DOM
+// ----- function that new creates grid -----\\
+function createGrid(gridSize){   
+    //create 1 flex container, then insert it into DOM
+    for (let i = 0; i < gridSize; i++) {     
         const flexContainer = document.createElement('div')
-        gridContainer.appendChild(flexContainer)
+        GRID_CONTAINER.appendChild(flexContainer)
         flexContainer.classList.add('flex-container')
 
-
-        for (let i = 0; i < gridSize; i++) {   //create 16 flex items, and store in newly created flex container above
+        //create 16 flex items, and store in newly created flex container above
+        for (let i = 0; i < gridSize; i++) {   
         const flexItem = document.createElement('div');
         flexContainer.appendChild(flexItem)
         flexItem.classList.add('flex-item')
-
     
             // -----------  bonus feature // random color generator + darkener  ------------\\
 
@@ -45,14 +49,8 @@ function createGrid(gridSize){   //function that creates grid
                 //     }
                 // )
         }
+    }
 }
-}
-
-
-
-
-let defaultGridSize = 16   //set default grid size
-createGrid(defaultGridSize)   //create grid on page load
 
 
 
@@ -61,7 +59,8 @@ createGrid(defaultGridSize)   //create grid on page load
 
 
 
-function colorNodeRandomColor(node){
+// ----- function that colors NODE in random color -----\\
+function colorNodeRandomColor(NODE){
     let randomHex = '#'
 
     for ( let i=0; i<6; i++ ) {
@@ -74,9 +73,8 @@ function colorNodeRandomColor(node){
         randomHex += hexDigits[+randomNumber]
     }
 
-    return node.style.backgroundColor = `${randomHex}`
+    return NODE.style.backgroundColor = `${randomHex}`
 }
-
 
 // 'Math.random()' returns random number between ( 0.0 - 1.0 ). 
 // '*16' returns a number between the range ( 0.0 - 16.0 ). To get a random output within a specific range, just times the 'high number of the range' to Math.random(). as shown, '16.0 x Math.random()'  can only return a value between 0.0 - 16.0 
@@ -87,18 +85,28 @@ function colorNodeRandomColor(node){
 
 
 
-const btnNewGrid = document.querySelector('button')   //select btn element
-btnNewGrid.addEventListener('click', ()=>{   //register 'click' event handler on btn element  
 
-    for ( ; ; ){   //create infinite loop, until user inputs a number.
+
+
+// ----- register event handler on btn -----\\      
+const btnNewGrid = document.querySelector('button')   //select btn element
+btnNewGrid.addEventListener('click', createNewUserGrid) //register 'click' event handler on btn element  
+
+
+
+
+
+function createNewUserGrid(){
+    // ----- create infinite loop, until user inputs a number -----\\      
+    for ( ; ; ){ 
         let userGridSize = +prompt('How many squares per side? | --- range: 0 - 100 --- | 😘', '... for INFINITY (oh-oh-oh)  Cause I love you for INFINITY (oh-oh-oh)')  //prompt user to choose grid size
-    
+
         if (  //confirm user gives a number thats between ( 0 - 100 )
-            (!isNaN(userGridSize)) &&   //is given input is a 'number'?
-            ( userGridSize < 100 ) &&   //is given input 'less than' 100?
-            ( userGridSize > 0)         //is given input 'greater than' 0?
+            (!isNaN(userGridSize)) &&   //is input a 'number'?
+            ( userGridSize < 100 ) &&   //is input 'less than' 100?
+            ( userGridSize > 0)         //is input 'greater than' 0?
         ) {
-                console.log(userGridSize)   //console.log used to debug
+                //console.log(userGridSize)   //console.log used to debug
 
                 const currentFlexContainers = document.querySelectorAll('.flex-container')   //select the current grid container
 
@@ -113,12 +121,13 @@ btnNewGrid.addEventListener('click', ()=>{   //register 'click' event handler on
                 break;   //break the for loop
 
         } else {
-            console.log(userGridSize)  //console.log used to debug
+            //console.log(userGridSize)  //console.log used to debug
+            
             alert(`Bro did you not read the manual? 😂:
             1. Enter a Number between 0-100 🧙‍♀️
             2. Paint like Michelangelo 🎨
             3. Lose Your Mind in the Process 🐦 🔥
-            
+
             EASY AS
 
             To Keep BLAZING Forward 
@@ -127,8 +136,7 @@ btnNewGrid.addEventListener('click', ()=>{   //register 'click' event handler on
             continue;   //if user has not satisfied the conditions of the if statement, repeat the for loop
         }
     }
-})
-
+}
 
 
 
